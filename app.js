@@ -11,6 +11,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 //아래는 라우팅을 지원하는 모듈이 있는 물리적인 위치값
 var usersRouter = require('./routes/users');
+const calendarRouter = require('./routes/calendar')
+const youtubeRouter = require('./routes/youtube')
 
 var app = express();
 
@@ -25,7 +27,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter); //********** 
+app.use('/users', usersRouter);
+app.use('/calendar', calendarRouter);
+app.use('/youtube', youtubeRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -34,12 +34,13 @@
         // const u_email = document.querySelector("#email") HTMLElement
         const u_email = document.querySelector("#email").value
         const u_pw = document.querySelector("#password").value
+        console.log(`u_email:${u_email}, u_pw:${u_pw}`);
         createUserWithEmailAndPassword(auth, u_email, u_pw)
             .then((data) => {
                 //회원가입 성공시 함수 파라이터 인증객체와 이메일, 비번을 비교 -> 일치 시 응답으로 메세지 response
                 //=콜백함수
                 console.log(data);
-                location.href = "/login"//회원가입성공 시 로그인화면으로
+                // location.href = "/login"//회원가입성공 시 로그인화면으로
             })//end of createUserWithEmailAndPassword
             .catch((error) => { //에러가 발생하면 그때 실행됌
                 const errorCode = error.code
